@@ -49,4 +49,15 @@ function testClassifier(testData) {
         }
     });
     console.log('Correct %: ', numCorrect / testData.length);
+    saveClassifier(classifier);
+}
+
+function saveClassifier(classifier) {
+    classifier.save('classifier.json', (err, classifier) => {
+        if (err) {
+            console.log('err');
+        } else {
+            console.log('Classifier saved!');
+        }
+    });
 }
