@@ -2,6 +2,7 @@
 
 let natural = require('natural');
 let fs = require('fs');
+//let classifier = new natural.LogisticRegressionClassifier();
 let classifier = new natural.BayesClassifier();
 
 fs.readFile('training_data.json', 'utf-8', (err, data) => {
@@ -38,7 +39,7 @@ function loadTestData() {
     });
 }
 
-function testClassifier() {
+function testClassifier(testData) {
     console.log('Testing classifier');
     let numCorrect = 0;
     testData.forEach(item => {
